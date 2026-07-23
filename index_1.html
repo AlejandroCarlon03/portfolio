@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Carlon Leyva — Software Engineer</title>
+<meta name="description" content="Software Engineering student & systems integration engineer. Building identity sync, security monitoring, and CRM automation pipelines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1522;
+    --bg-raised: #151d2e;
+    --panel: #1a2338;
+    --line: #2a3550;
+    --line-bright: #3d4d75;
+    --text: #e7ebf5;
+    --text-dim: #8b96b3;
+    --text-faint: #5c6788;
+    --accent: #e8a33d;
+    --accent-dim: #e8a33d33;
+    --accent-glow: #e8a33d1a;
+    --ok: #6fc9a8;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(ellipse 1000px 600px at 12% -10%, var(--accent-glow), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 100% 10%, #ffffff08, transparent 60%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/></svg>");
+    background-repeat: no-repeat, no-repeat, repeat;
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--accent); color: #0f1522; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(15, 21, 34, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 8px var(--ok);
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: color 0.15s ease;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 96px 0 64px;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  h1.name {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 780px;
+  }
+  h1.name .accent-text { color: var(--accent); }
+  .role-line {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--text-dim);
+    margin-top: 20px;
+    max-width: 560px;
+  }
+  .role-line strong { color: var(--text); font-weight: 500; }
+
+  .hero-links {
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 11px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+    border: 1px solid var(--line-bright);
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: #14100a;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  .btn.primary:hover { background: #f0b256; }
+  .btn.ghost {
+    color: var(--text);
+    background: var(--panel);
+  }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* live status strip */
+  .status-strip {
+    margin-top: 56px;
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-raised);
+  }
+  .status-cell {
+    flex: 1;
+    padding: 16px 20px;
+    border-right: 1px solid var(--line);
+  }
+  .status-cell:last-child { border-right: none; }
+  .status-cell .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .status-cell .value {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--text);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .status-strip { flex-direction: column; }
+    .status-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .status-cell:last-child { border-bottom: none; }
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .section-head .tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- PROJECT SCHEMATIC CARDS ---------- */
+  .project {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+  }
+  .project:hover { border-color: var(--line-bright); }
+
+  .project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .project-desc {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    margin-top: 8px;
+    max-width: 560px;
+  }
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid var(--accent-dim);
+    padding: 7px 14px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+  }
+  .project-link:hover { background: var(--accent-glow); }
+
+  /* the pipeline schematic */
+  .schematic {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .node {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text);
+    background: var(--bg-raised);
+    border: 1px solid var(--line-bright);
+    border-radius: 6px;
+    padding: 8px 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .node.destination { border-color: var(--ok); color: var(--ok); }
+  .wire {
+    flex: 0 0 44px;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--line-bright) 0 6px, transparent 6px 10px);
+    position: relative;
+    min-width: 32px;
+  }
+  .wire::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    animation: flow 2.2s linear infinite;
+  }
+  @keyframes flow {
+    0% { left: -6px; opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wire::after { animation: none; opacity: 0.6; left: 50%; }
+  }
+
+  .tags {
+    margin-top: 18px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* metrics row within project */
+  .metrics {
+    margin-top: 16px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .metric .num {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .metric .desc {
+    font-size: 11.5px;
+    color: var(--text-faint);
+    margin-top: 2px;
+  }
+
+  /* ---------- ABOUT / STACK ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+  }
+  .about-text p {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 16px;
+    max-width: 480px;
+  }
+  .about-text strong { color: var(--text); font-weight: 500; }
+
+  .stack-group { margin-bottom: 22px; }
+  .stack-group h3 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .stack-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack-pill {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 6px 12px;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--text);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 56px;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer .foot-note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .foot-links { display: flex; gap: 20px; }
+  .foot-links a {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+  .foot-links a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span>alejandro.dev</a>
+    <div class="nav-links">
+      <a href="#projects">projects</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">SOFTWARE ENGINEERING · ASU · CLASS OF 2028</div>
+    <h1 class="name">Alejandro Carlon Leyva</h1>
+    <p class="role-line">I connect systems that weren't built to talk to each other — <strong>identity platforms</strong>, <strong>security logs</strong>, and <strong>call pipelines</strong> — so the handoff between them just works.</p>
+
+    <div class="hero-links">
+      <a class="btn primary" href="https://github.com/AlejandroCarlon03" target="_blank" rel="noopener">View GitHub →</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/alex-carlon-leyva-626912230" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="mailto:Alex.carlon26@gmail.com">Email</a>
+    </div>
+
+    <div class="status-strip">
+      <div class="status-cell">
+        <div class="label">Currently</div>
+        <div class="value">SWE Intern @ DKB</div>
+      </div>
+      <div class="status-cell">
+        <div class="label">Building</div>
+        <div class="value">Systems Health Dashboard</div>
+      </div>
+      <div class="status-cell">
+        <div class="label">Open to</div>
+        <div class="value">Summer 2027 internships</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <div class="tag">// systems in production at DKB + personal builds</div>
+    </div>
+
+    <!-- SnipeSync -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">SnipeSync</div>
+          <div class="project-desc">Automated employee lifecycle sync between Entra ID and Snipe-IT — offboarding and onboarding without a human touching either system.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/SnipeSync" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">Entra ID</div>
+        <div class="wire"></div>
+        <div class="node">Azure Function<br>.NET 9</div>
+        <div class="wire"></div>
+        <div class="node destination">Snipe-IT</div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="num">150+</div><div class="desc">employees covered</div></div>
+        <div class="metric"><div class="num">Prod</div><div class="desc">deployed, Flex Consumption plan</div></div>
+        <div class="metric"><div class="num">xUnit</div><div class="desc">test suite + Polly retry policies</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">.NET 9</span>
+        <span class="tag-pill">Azure Functions</span>
+        <span class="tag-pill">Microsoft Graph API</span>
+        <span class="tag-pill">OpenTelemetry</span>
+      </div>
+    </div>
+
+    <!-- EntraSecurityWatcher -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">EntraSecurityWatcher</div>
+          <div class="project-desc">Watches privileged-access changes in Entra ID and surfaces them on a live desktop dashboard — built around polling since PIM events aren't exposed via webhook.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/EntraSecurityWatcher" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">Entra ID<br>Audit Logs</div>
+        <div class="wire"></div>
+        <div class="node">Azure Function<br>+ Table Storage</div>
+        <div class="wire"></div>
+        <div class="node destination">React / Photino<br>Dashboard</div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="num">12</div><div class="desc">xUnit tests</div></div>
+        <div class="metric"><div class="num">0</div><div class="desc">duplicate alerts, via watermark dedup</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">Azure Functions</span>
+        <span class="tag-pill">React + TypeScript</span>
+        <span class="tag-pill">Photino</span>
+        <span class="tag-pill">Azure Table Storage</span>
+      </div>
+    </div>
+
+    <!-- LeadRouter -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">LeadRouter — AI Phone CRM Integration</div>
+          <div class="project-desc">Turns an inbound phone call into a routed, attributed CRM lead — no dispatcher required. Handles new vs. existing customer branching in real time.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/dkb-retell-odoo-integration" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">Retell AI<br>Voice Agent</div>
+        <div class="wire"></div>
+        <div class="node">Zapier<br>Extraction</div>
+        <div class="wire"></div>
+        <div class="node destination">Odoo CRM<br>Lead + Routing</div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="num">95%+</div><div class="desc">auto-routing accuracy</div></div>
+        <div class="metric"><div class="num">ZIP</div><div class="desc">based store routing + UTM attribution</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">Retell AI</span>
+        <span class="tag-pill">Zapier</span>
+        <span class="tag-pill">Odoo CRM</span>
+        <span class="tag-pill">GPT structured extraction</span>
+      </div>
+    </div>
+
+    <!-- Systems Health Dashboard -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">Systems Health Dashboard</div>
+          <div class="project-desc">A global view of infrastructure health across every DKB location — websites, server rooms, and more — rolled up into one dashboard instead of checking each system separately.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/dkb-systems-health-dashboard" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">Sites, Server Rooms<br>+ Services</div>
+        <div class="wire"></div>
+        <div class="node">Spring Boot<br>Health Checks</div>
+        <div class="wire"></div>
+        <div class="node destination">Global<br>Dashboard</div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">Java</span>
+        <span class="tag-pill">Spring Boot</span>
+        <span class="tag-pill">Multi-location monitoring</span>
+        <span class="tag-pill">In progress</span>
+      </div>
+    </div>
+
+    <!-- Slay the Spire dashboard -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">Slay the Spire 2 Analytics Dashboard</div>
+          <div class="project-desc">Personal project — parses run history into an interactive dashboard for win-rate, deck archetype performance, and floor-by-floor survival.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/sts2-game-analyzer" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">Run Logs</div>
+        <div class="wire"></div>
+        <div class="node">Python<br>Pandas</div>
+        <div class="wire"></div>
+        <div class="node destination">Streamlit +<br>Plotly</div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">Python</span>
+        <span class="tag-pill">Streamlit</span>
+        <span class="tag-pill">Plotly</span>
+        <span class="tag-pill">Personal project</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <div class="tag">// context</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a Software Engineering student at <strong>Arizona State University</strong> (expected May 2028), currently interning at <strong>Diamond Kitchen and Bath</strong> in Phoenix, where I split time between IT infrastructure work and building internal tools.</p>
+        <p>Most of what I build sits at the seam between two systems that were never designed to talk to each other — an identity provider and an asset tracker, a phone call and a CRM, an audit log and a dashboard. I like that problem: it's less about writing new logic and more about making a handoff reliable.</p>
+        <p>Outside of work, I'm working through <strong>Princeton's Algorithms (Sedgewick)</strong> course and ASU's data structures coursework, and I'm currently focused on landing a Summer 2027 internship in AI/ML or backend engineering.</p>
+      </div>
+      <div class="stacks">
+        <div class="stack-group">
+          <h3>Languages</h3>
+          <div class="stack-pills">
+            <span class="stack-pill">C#</span>
+            <span class="stack-pill">Java</span>
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">C++</span>
+            <span class="stack-pill">TypeScript</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Platforms</h3>
+          <div class="stack-pills">
+            <span class="stack-pill">Azure Functions</span>
+            <span class="stack-pill">Microsoft Graph API</span>
+            <span class="stack-pill">Spring Boot</span>
+            <span class="stack-pill">Entra ID</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Tooling</h3>
+          <div class="stack-pills">
+            <span class="stack-pill">JetBrains Rider / IntelliJ</span>
+            <span class="stack-pill">Git</span>
+            <span class="stack-pill">xUnit / pytest</span>
+            <span class="stack-pill">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-note">Built with a plain HTML/CSS scaffold — no framework, deploys straight to GitHub Pages.</div>
+    <div class="foot-links">
+      <a href="https://github.com/AlejandroCarlon03" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/alex-carlon-leyva-626912230" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Alex.carlon26@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
