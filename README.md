@@ -12,10 +12,11 @@ Plain HTML, CSS, and vanilla JS — no framework, no build step. Deployed on Git
 
 ## Featured projects
 
-- **[SnipeSync](https://github.com/AlejandroCarlon03/SnipeSync)** — automated employee lifecycle sync between Entra ID and Snipe-IT
-- **[EntraSecurityWatcher](https://github.com/AlejandroCarlon03/EntraSecurityWatcher)** — live monitoring dashboard for privileged-access changes in Entra ID
-- **[LeadRouter](https://github.com/AlejandroCarlon03/dkb-retell-odoo-integration)** — AI phone agent that routes inbound calls straight into a CRM lead
-- **[Slay the Spire 2 Analytics Dashboard](https://github.com/AlejandroCarlon03/sts2-game-analyzer)** — personal project analyzing run history and deck performance
+- **[SnipeSync](https://github.com/AlejandroCarlon03/SnipeSync)** — automates any changes within Entra and syncs to Snipe-IT
+- **[EntraSecurityWatcher](https://github.com/AlejandroCarlon03/EntraSecurityWatcher)** — monitors Entra events and logs them in a dashboard
+- **[dkb-retell-odoo-integration](https://github.com/AlejandroCarlon03/dkb-retell-odoo-integration)** — matches an inbound caller's phone number to an existing Odoo CRM opportunity, assigns the nearest DKB store by ZIP code, and creates/reuses UTM attribution
+- **[dkb-systems-health-dashboard](https://github.com/AlejandroCarlon03/dkb-systems-health-dashboard)** — a global UI view of the health of our websites, server rooms, and more
+- **[sts2-game-analyzer](https://github.com/AlejandroCarlon03/sts2-game-analyzer)** — analyzes Slay the Spire 2 game runs
 
 ## Contact
 
