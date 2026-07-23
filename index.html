@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alejandro Carlon Leyva — Software Engineer</title>
 <meta name="description" content="Software Engineering student & systems integration engineer. Building identity sync, security monitoring, and CRM automation pipelines.">
+
+<!-- Favicon: amber "A" monogram, no external file needed -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1522'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='34' font-weight='700' fill='%23e8a33d' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alejandro Carlon Leyva — Software Engineer">
+<meta property="og:description" content="Software Engineering student & systems integration engineer. Building identity sync, security monitoring, and CRM automation pipelines.">
+<meta property="og:image" content="https://alejandrocarlon03.github.io/portfolio/screenshot.png">
+<meta property="og:url" content="https://alejandrocarlon03.github.io/portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alejandro Carlon Leyva — Software Engineer">
+<meta name="twitter:description" content="Software Engineering student & systems integration engineer. Building identity sync, security monitoring, and CRM automation pipelines.">
+<meta name="twitter:image" content="https://alejandrocarlon03.github.io/portfolio/screenshot.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -237,12 +252,20 @@
   }
 
   /* ---------- PROJECT SCHEMATIC CARDS ---------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 780px) {
+    .projects-grid { grid-template-columns: 1fr; }
+  }
   .project {
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     transition: border-color 0.2s ease;
   }
   .project:hover { border-color: var(--line-bright); }
@@ -363,6 +386,84 @@
     margin-top: 2px;
   }
 
+  /* ---------- CASE STUDIES ---------- */
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 780px) {
+    .case-grid { grid-template-columns: 1fr; }
+  }
+  .case-study {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+    transition: border-color 0.2s ease;
+  }
+  .case-study:hover { border-color: var(--line-bright); }
+  .case-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .case-row {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 14px;
+    margin-bottom: 12px;
+    align-items: baseline;
+  }
+  .case-row:last-child { margin-bottom: 0; }
+  .case-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .case-row p {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 780px) {
+    .skills-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+  .skill-group h3 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+  }
+  .skill-row:last-child { border-bottom: none; }
+  .skill-dots {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--line-bright);
+  }
+  .skill-dots .filled { color: var(--accent); }
+
   /* ---------- ABOUT / STACK ---------- */
   .about-grid {
     display: grid;
@@ -448,6 +549,7 @@
 
     <div class="hero-links">
       <a class="btn primary" href="https://github.com/AlejandroCarlon03" target="_blank" rel="noopener">View GitHub →</a>
+      <a class="btn ghost" href="./resume.pdf" target="_blank" rel="noopener" download>Resume ↓</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/alex-carlon-leyva-626912230" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn ghost" href="mailto:Alex.carlon26@gmail.com">Email</a>
     </div>
@@ -476,6 +578,7 @@
       <div class="tag">// systems in production at DKB + personal builds</div>
     </div>
 
+    <div class="projects-grid">
     <!-- SnipeSync -->
     <div class="project">
       <div class="project-top">
@@ -609,6 +712,72 @@
       </div>
     </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="case-studies">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Case Studies</h2>
+      <div class="tag">// infra problems, worked through end to end</div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-study">
+        <div class="case-title">Server Room Overheating Crisis</div>
+        <div class="case-row"><div class="case-label">Problem</div><p>A server room was running hot enough to put hardware at risk, with no clear read on how close it was to a failure threshold.</p></div>
+        <div class="case-row"><div class="case-label">Approach</div><p>Ran an ASHRAE-based thermal load analysis and built a cross-reference workbook comparing heat output against existing cooling capacity.</p></div>
+        <div class="case-row"><div class="case-label">Result</div><p>Recommended and sized a portable AC unit to close the gap; room now holds safely within operating temps.</p></div>
+      </div>
+
+      <div class="case-study">
+        <div class="case-title">Production Outage — Odoo CRM</div>
+        <div class="case-row"><div class="case-label">Problem</div><p>Odoo 19 Community went down in production with no obvious cause, blocking the sales team.</p></div>
+        <div class="case-row"><div class="case-label">Approach</div><p>Traced the failure to a Content-Security-Policy misconfiguration in Nginx that was silently blocking key resources.</p></div>
+        <div class="case-row"><div class="case-label">Result</div><p>Corrected the CSP headers and restored service with zero data loss.</p></div>
+      </div>
+
+      <div class="case-study">
+        <div class="case-title">Kitchen Commander Job Identity System</div>
+        <div class="case-row"><div class="case-label">Problem</div><p>Manufacturing jobs had no reliable unique identity across dealers and timeframes, causing ID collisions downstream.</p></div>
+        <div class="case-row"><div class="case-label">Approach</div><p>Designed a JSON registry on a shared SMB share, keyed by a composite UID combining creation date and dealer code.</p></div>
+        <div class="case-row"><div class="case-label">Result</div><p>Eliminated ID collisions across the job pipeline without requiring a new database.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <div class="tag">// what I reach for, and how often</div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Backend &amp; Languages</h3>
+        <div class="skill-row"><span>C#</span><span class="skill-dots"><span class="filled">●●●●</span></span></div>
+        <div class="skill-row"><span>Java</span><span class="skill-dots"><span class="filled">●●●</span>○</span></div>
+        <div class="skill-row"><span>Python</span><span class="skill-dots"><span class="filled">●●●</span>○</span></div>
+        <div class="skill-row"><span>TypeScript</span><span class="skill-dots"><span class="filled">●●</span>○○</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Cloud &amp; Identity</h3>
+        <div class="skill-row"><span>Azure Functions</span><span class="skill-dots"><span class="filled">●●●●</span></span></div>
+        <div class="skill-row"><span>Microsoft Graph API</span><span class="skill-dots"><span class="filled">●●●●</span></span></div>
+        <div class="skill-row"><span>Entra ID</span><span class="skill-dots"><span class="filled">●●●</span>○</span></div>
+        <div class="skill-row"><span>Spring Boot</span><span class="skill-dots"><span class="filled">●●</span>○○</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Tooling &amp; Testing</h3>
+        <div class="skill-row"><span>JetBrains IDEs</span><span class="skill-dots"><span class="filled">●●●●</span></span></div>
+        <div class="skill-row"><span>Git</span><span class="skill-dots"><span class="filled">●●●●</span></span></div>
+        <div class="skill-row"><span>xUnit / pytest</span><span class="skill-dots"><span class="filled">●●●</span>○</span></div>
+        <div class="skill-row"><span>Docker</span><span class="skill-dots"><span class="filled">●●</span>○○</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
