@@ -636,6 +636,34 @@
       </div>
     </div>
 
+    <!-- EntraLicenseOptimizer -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">EntraLicenseOptimizer</div>
+          <div class="project-desc">Reads Entra ID nightly and reports paid M365 seats nobody is using — disabled accounts, dormant and never-signed-in users, and seats bought but assigned to no one — with a monthly dollar figure pushed to Teams. Read-only against Entra by design.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/EntraLicenseOptimizer" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">Entra ID<br>Licenses + Sign-ins</div>
+        <div class="wire"></div>
+        <div class="node">Azure Function<br>.NET 9 · Timer</div>
+        <div class="wire"></div>
+        <div class="node destination">Cosmos DB<br>+ Teams Summary</div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="num">4</div><div class="desc">waste rules incl. group-assigned seats</div></div>
+        <div class="metric"><div class="num">$/mo</div><div class="desc">wasted-seat cost surfaced to Teams</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">.NET 9</span>
+        <span class="tag-pill">Azure Functions</span>
+        <span class="tag-pill">Microsoft Graph API</span>
+        <span class="tag-pill">Cosmos DB</span>
+      </div>
+    </div>
+
     <!-- LeadRouter -->
     <div class="project">
       <div class="project-top">
@@ -661,6 +689,34 @@
         <span class="tag-pill">Zapier</span>
         <span class="tag-pill">Odoo CRM</span>
         <span class="tag-pill">GPT structured extraction</span>
+      </div>
+    </div>
+
+    <!-- call_forecast -->
+    <div class="project">
+      <div class="project-top">
+        <div>
+          <div class="project-title">call_forecast — Call Analytics Forecasting</div>
+          <div class="project-desc">Drop a RetellAI call-export CSV in, run one command, and get 30/60/90-day forecasts of call volume, duration, and cost — with calibrated confidence intervals, an auto-selected model, anomaly alerts, SHAP explanations, and a self-contained HTML dashboard that's honest about what the data can support.</div>
+        </div>
+        <a class="project-link" href="https://github.com/AlejandroCarlon03/call-analytics-forecasting-dashboard" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="schematic">
+        <div class="node">RetellAI<br>Call Export CSV</div>
+        <div class="wire"></div>
+        <div class="node">Python<br>scikit-learn</div>
+        <div class="wire"></div>
+        <div class="node destination">HTML Dashboard<br>+ Forecasts</div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="num">30/60/90</div><div class="desc">day volume, duration + cost forecasts</div></div>
+        <div class="metric"><div class="num">MASE</div><div class="desc">backtested vs seasonal-naive baseline</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag-pill">Python</span>
+        <span class="tag-pill">scikit-learn</span>
+        <span class="tag-pill">SHAP</span>
+        <span class="tag-pill">Time-series forecasting</span>
       </div>
     </div>
 
